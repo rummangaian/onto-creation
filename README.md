@@ -22,11 +22,6 @@ python3 swaggertordf.py /home/gaian/Downloads/api-docs-holacracy.json /home/gaia
 ## Output
 - **Output File**: An RDF/XML file that represents the API ontology.
 
-## License
-Specify the license under which your project is distributed.
-
-## Contributing
-If you would like to contribute to this project, please fork the repository and submit a pull request.
 
 ## Contact
 For any inquiries, please contact [Sai Ravi Chandra](mailto: gangavarapu.s@mobiusdtaas.ai).
