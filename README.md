@@ -3,10 +3,6 @@
 ## Overview
 The `swaggertordf.py` script converts Swagger/OpenAPI JSON files into RDF/XML ontology format. This enhanced script captures the full structure of the API, including endpoints, parameters, request bodies, responses, and security schemes, to support potential roundtrip conversions.
 
-## Requirements
-- Python 3.x
-- Required Python packages (if any, list them here)
-
 ## Usage
 To run the script, use the following command:
 ```bash
@@ -33,4 +29,4 @@ Specify the license under which your project is distributed.
 If you would like to contribute to this project, please fork the repository and submit a pull request.
 
 ## Contact
-For any inquiries, please contact [Your Name](mailto: gangavarapu.s@mobiusdtaas.ai).
+For any inquiries, please contact [Sai Ravi Chandra](mailto: gangavarapu.s@mobiusdtaas.ai).
