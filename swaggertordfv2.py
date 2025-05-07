@@ -255,15 +255,15 @@ class EnhancedSwaggerToRDFConverter:
     """
         classes_output += api_class_def
         
-        # Define OWL:Class as a subclass of API for proper hierarchy
-        owl_class_def = """
-        <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Class">
-            <rdfs:label xml:lang="en">Any Class</rdfs:label>
-            <rdfs:comment xml:lang="en">RDF Class</rdfs:comment>
-            <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#API"/>
-        </owl:Class>
-    """
-        classes_output += owl_class_def
+    #     # Define OWL:Class as a subclass of API for proper hierarchy
+    #     owl_class_def = """
+    #     <owl:Class rdf:about="http://www.w3.org/2002/07/owl#API">
+    #         <rdfs:label xml:lang="en">Any Class</rdfs:label>
+    #         <rdfs:comment xml:lang="en">RDF Class</rdfs:comment>
+    #         <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#API"/>
+    #     </owl:Class>
+    # """
+    #     classes_output += owl_class_def
         
         return classes_output    
 
@@ -600,7 +600,7 @@ class EnhancedSwaggerToRDFConverter:
         <rdfs:label xml:lang="en">has {controller_name} endpoint</rdfs:label>
         <rdfs:comment xml:lang="en">Relates {controller_name} controller to its endpoints</rdfs:comment>
         <rdfs:domain rdf:resource="{class_uri}"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#API"/>
     </owl:ObjectProperty>
 """
                 classes_output += prop_def
@@ -699,7 +699,7 @@ class EnhancedSwaggerToRDFConverter:
             <rdfs:label xml:lang="en">has response</rdfs:label>
             <rdfs:comment xml:lang="en">Relates endpoint {class_name} to its responses</rdfs:comment>
             <rdfs:domain rdf:resource="{class_uri}"/>
-            <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+            <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#API"/>
         </owl:ObjectProperty>
     """
                     classes_output += prop_def
@@ -811,7 +811,7 @@ class EnhancedSwaggerToRDFConverter:
             <rdfs:label xml:lang="en">belongs to endpoint</rdfs:label>
             <rdfs:comment xml:lang="en">Relates a parameter to its endpoint</rdfs:comment>
             <rdfs:domain rdf:resource="{param_class_uri}"/>
-            <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+            <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#API"/>
         </owl:ObjectProperty>
     """
             classes_output += prop_def
@@ -896,8 +896,8 @@ class EnhancedSwaggerToRDFConverter:
         <owl:ObjectProperty rdf:about="{prop_uri}">
             <rdfs:label xml:lang="en">has schema</rdfs:label>
             <rdfs:comment xml:lang="en">Relates a request body or response to its schema</rdfs:comment>
-            <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-            <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+            <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#API"/>
+            <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#API"/>
         </owl:ObjectProperty>
     """
             classes_output += prop_def
@@ -1733,7 +1733,7 @@ class EnhancedSwaggerToRDFConverter:
     <owl:ObjectProperty rdf:about="{prop_uri}">
         <rdfs:label xml:lang="en">has security requirement</rdfs:label>
         <rdfs:comment xml:lang="en">Relates an API or endpoint to a security scheme</rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#API"/>
         <rdfs:range rdf:resource="{security_class_uri}"/>
     </owl:ObjectProperty>
 """
