@@ -1,0 +1,30 @@
+# Byte-compiled / cache / logs
+__pycache__/
+*.py[cod]
+*.log
+
+# Pytest cache
+.pytest_cache/
+
+# Virtual environment
+venv/
+env/
+ENV/
+
+# IDE/editor configs
+.vscode/
+.idea/
+*.swp
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Coverage
+htmlcov/
+.coverage
+
+# Output files
+*.rdf
+*.xml
+output/
