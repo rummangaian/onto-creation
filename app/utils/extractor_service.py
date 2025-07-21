@@ -4,7 +4,6 @@ from typing import Optional
 from docx import Document
 from PyPDF2 import PdfReader
 import docx2txt
-from PIL import Image
 
 def extract_pdf(path: str) -> str:
     reader = PdfReader(path)

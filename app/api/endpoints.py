@@ -3,6 +3,7 @@ from fastapi.responses import StreamingResponse
 from app.converters.openapi_to_rdf import SwaggerToRDFConverter
 from app.converters.openapi_to_ttl import OpenAPIToTTL
 from app.utils.cms_uploader import upload_to_cms
+from app.utils.extractor_service import extract_content
 import io
 import json
 import logging
