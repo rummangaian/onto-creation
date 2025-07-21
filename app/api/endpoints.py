@@ -3,10 +3,13 @@ from fastapi.responses import StreamingResponse
 from app.converters.swagger_to_rdf import SwaggerToRDFConverter
 import io
 import json
+import logging
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter()
 
-@router.get("/" , summary="Testing")
+@router.get("/", summary="Testing")
 async def test():
     return "Endpoint is working fine"
 
@@ -22,7 +25,8 @@ async def convert_openapi(openapi_file: UploadFile = File(...)):
             raise HTTPException(status_code=400, detail="Invalid JSON file.") from e
 
         converter = SwaggerToRDFConverter(swagger_data)
-        rdf_content = converter.convert_to_rdf()
+        converter.convert()  # Build the RDF graph
+        rdf_content = converter.serialize()  # Serialize it to RDF/XML string
 
         rdf_file = io.BytesIO(rdf_content.encode("utf-8"))
         response = StreamingResponse(
@@ -34,4 +38,5 @@ async def convert_openapi(openapi_file: UploadFile = File(...)):
     except HTTPException:
         raise
     except Exception as exc:
+        logger.exception("Unexpected error in convert_openapi")
         raise HTTPException(status_code=500, detail="Internal server error.")
